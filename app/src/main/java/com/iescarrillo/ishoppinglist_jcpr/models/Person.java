@@ -1,5 +1,7 @@
 package com.iescarrillo.ishoppinglist_jcpr.models;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Person implements Serializable {
@@ -11,7 +13,7 @@ public class Person implements Serializable {
     private String phone;
     private String dni;
 
-    public Person(String name) {
+    public Person() {
         super();
     }
 
@@ -63,4 +65,9 @@ public class Person implements Serializable {
         this.dni = dni;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
