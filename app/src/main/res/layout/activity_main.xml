@@ -15,6 +15,14 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/tvPerson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:text="Persona seleccionada" />
+
         <ListView
             android:id="@+id/lvPersons"
             android:layout_width="match_parent"

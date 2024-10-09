@@ -1,5 +1,7 @@
 package com.iescarrillo.ishoppinglist_jcpr.adapters;
 
+import static com.iescarrillo.ishoppinglist_jcpr.database.Database.personList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.iescarrillo.ishoppinglist_jcpr.R;
+import com.iescarrillo.ishoppinglist_jcpr.database.Database;
 import com.iescarrillo.ishoppinglist_jcpr.models.Person;
 
 import java.util.List;
@@ -37,6 +40,27 @@ public class PersonAdapter extends ArrayAdapter<Person> {
             /* Aquí le indicamos el XML que queremos que cree llamando al método .inflate
                Método .inflate(hace referencia al xml que queremos mostrar, ViewGroup parent,
                false para que primero cree el xml padre y luego el hijo)*/
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_person, parent, false);
+        }
+
+        // Recogemos de la vista los componentes
+        TextView tvName = convertView.findViewById(R.id.tvName);
+        TextView tvEmail = convertView.findViewById(R.id.tvEmail);
+        TextView tvPhone = convertView.findViewById(R.id.tvPhone);
+
+        // Modificamos los atributos de los componentes
+        tvName.setText(p.getName() + " " + p.getSurname());
+        tvEmail.setText(p.getEmail());
+        tvPhone.setText(p.getPhone());
+
+        return convertView;
+    }
+
+    @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent){
+        Person p = personList.get(position);
+
+        if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_person, parent, false);
         }
 
